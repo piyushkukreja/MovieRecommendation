@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<!--[if IE 7]>
+<html class="ie ie7 no-js" lang="en-US">
+<![endif]-->
+<!--[if IE 8]>
+<html class="ie ie8 no-js" lang="en-US">
+<![endif]-->
+<!--[if !(IE 7) | !(IE 8)  ]><!-->
+<html lang="en" class="no-js">
+
+<!-- Mirrored from haintheme.com/demo/html/bustter/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Mar 2020 19:51:37 GMT -->
+
+<head>
+	<!-- Basic need -->
+	{% block head %}
+	<title>Blockbuster - Landing</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" href="#">
+
+	<!--Google Font-->
+	<link rel="stylesheet" href='http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600' />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+
+
+	<!-- CSS files -->
+	<!-- <link rel="stylesheet" href="css/plugins.css"> -->
+	<!-- <link rel="stylesheet" href="css/style.css">-->
+	{% endblock %}
+</head>
+
+<body>
+	{% block body %}
+
+	<div class="slider movie-items">
+		<div class="container">
+			<div class="row">
+				<div class="movie-single-ct main-content">
+				<h1 class="bd-hd">Trending Movies</h1>
+			</div>
+				<div class="social-link">
+					<p>Follow us: </p>
+					<a href="#"><i class="ion-social-facebook"></i></a>
+					<a href="#"><i class="ion-social-twitter"></i></a>
+					<a href="#"><i class="ion-social-googleplus"></i></a>
+					<a href="#"><i class="ion-social-youtube"></i></a>
+				</div>
+				<div class="slick-multiItemSlider">
+					{% for movie in toplist %}
+					<div class="movie-item">
+						<div class="mv-img">
+							
+							<a href="#"><img src="{{ details[movie]['Poster']}}" alt="{{movie}}"
+									width="285" height="437" id="movie-image"></a>
+						</div>
+						<div class="title-in">
+							<div class="cate">
+								<span class="blue"><a href="#">{{details[movie]['Genre']}}</a></span>
+							</div>
+							<h6 id="movie-name"><a href="movies_details/{{movie}}">{{movie}}</a></h6>
+							<p><i class="ion-android-star"></i><span>{{ details[movie]['imdbRating'] }}</span> /10</p>
+							<div class="cate">
+								<span class="green"><a href="movies_details/{{movie}}"
+										class="btn btn-main btn-effect">Details</a></span>
+							</div>
+
+						</div>
+					</div>
+					{% endfor %}
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="movie-items">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10">
+					<div class="title-hd">
+						<h2>top action movies</h2>
+						<a href="/movies/Action" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+					</div>
+					<div class="tabs">
+						<ul class="tab-links">
+							<li class="active"><a href="#tab1">#Popular</a></li>
+						</ul>
+						<div class="tab-content">
+							<div id="tab1" class="tab active">
+								<div class="row">
+									<div class="slick-multiItem">
+										{% for movies in actionlist %}
+										<div class="slide-it">
+											<div class="movie-item">
+												<div class="mv-img">
+													<img src="{{ actiondetails[movies[0]]['Poster'] }}" alt="" width="185"
+														height="284">
+												</div>
+												<div class="hvr-inner">
+													<a href="movies_details/{{movies[0]}}"> Read more <i
+															class="ion-android-arrow-dropright"></i> </a>
+												</div>
+												<div class="title-in">
+													<h6><a href="#">{{actiondetails[movies[0]]['Title']}}</a></h6>
+													<p><i class="ion-android-star"></i><span>{{actiondetails[movies[0]]['imdbRating']}}</span> /10</p>
+												</div>
+											</div>
+										</div>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="title-hd">
+						<h2>top romantic movies</h2>
+						<a href="/movies/Romance" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
+					</div>
+					<div class="tabs">
+						<ul class="tab-links">
+							<li class="active"><a href="#tab1">#Popular</a></li>
+						</ul>
+						<div class="tab-content">
+							<div id="tab1" class="tab active">
+								<div class="row">
+									<div class="slick-multiItem">
+										{% for movies in comedylist %}
+										<div class="slide-it">
+											<div class="movie-item">
+												<div class="mv-img">
+													<img src="{{ comedydetails[movies[0]]['Poster'] }}" alt="" width="185"
+														height="284">
+												</div>
+												<div class="hvr-inner">
+													<a href="movies_details/{{movies[0]}}"> Read more <i
+															class="ion-android-arrow-dropright"></i> </a>
+												</div>
+												<div class="title-in">
+													<h6><a href="#">{{comedydetails[movies[0]]['Title']}}</a></h6>
+													<p><i class="ion-android-star"></i><span>{{comedydetails[movies[0]]['imdbRating']}}</span> /10</p>
+												</div>
+											</div>
+										</div>
+										{% endfor %}
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	
+	{% endblock %}
+</body>
+
+<!-- Mirrored from haintheme.com/demo/html/bustter/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Mar 2020 19:51:57 GMT -->
+
+</html>
