@@ -31,7 +31,7 @@
 <body>
 
 <div id="preloader">
-    <img class="logo" src="{{url_for('static', filename='images/logo.png')}}" alt="" width="119" height="58">
+    <img class="logo" src="{{url_for('static', filename='images/logo1.png')}}" alt="" width="119" height="58">
     <div id="status">
         <span></span>
         <span></span>
@@ -45,18 +45,29 @@
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>Login</h3>
-        <form method="post" action="https://haintheme.com/demo/html/bustter/login.php">
-        	<div class="row">
+        <form method="post" action="{{url_for('login')}}">
+        	<!-- <div class="row">
         		 <label for="username">
-                    Username:
-                    <input type="text" name="username" id="username" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                    First Name:
+                    <input type="text" name="firstname" id="username" placeholder="First Name" required="required" />
                 </label>
         	</div>
-           
+			<div class="row">
+				<label for="username">
+				   Last Name:
+				   <input type="text" name="lastname" id="username" placeholder="last name" required="required" />
+			   </label>
+		   </div> -->
+		   <div class="row">
+			<label for="username">
+			   Email:
+			   <input type="email" name="email" id="username" placeholder="Email" required="required" />
+		   </label>
+	   </div>
             <div class="row">
             	<label for="password">
                     Password:
-                    <input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="password" id="password" placeholder="******" required="required" />
                 </label>
             </div>
             <div class="row">
@@ -64,7 +75,7 @@
 					<div>
 						<input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
 					</div>
-            		<a href="#">Forget password ?</a>
+            		<a href="#">Forgot password ?</a>
             	</div>
             </div>
            <div class="row">
@@ -86,34 +97,41 @@
     <div class="login-content">
         <a href="#" class="close">x</a>
         <h3>sign up</h3>
-        <form method="post" action="https://haintheme.com/demo/html/bustter/signup.php">
+        <form method="post" action="{{url_for('register')}}">
             <div class="row">
                  <label for="username-2">
-                    Username:
-                    <input type="text" name="username" id="username-2" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                    First name:
+                    <input type="text" name="firstname" id="username-2" placeholder="First Name" required="required" />
                 </label>
-            </div>
+			</div>
+			
+			<div class="row">
+				<label for="username-2">
+				   last name:
+				   <input type="text" name="lastname" id="username-2" placeholder="Last Name"  required="required" />
+			   </label>
+		   </div>
            
             <div class="row">
                 <label for="email-2">
-                    your email:
-                    <input type="password" name="email" id="email-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    Email:
+                    <input type="email" name="email" id="email-2" placeholder="" required="required" />
                 </label>
             </div>
              <div class="row">
                 <label for="password-2">
                     Password:
-                    <input type="password" name="password" id="password-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="password1" id="password-2"   required="required" />
                 </label>
             </div>
              <div class="row">
                 <label for="repassword-2">
                     re-type Password:
-                    <input type="password" name="password" id="repassword-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="password2" id="repassword-2"  required="required" />
                 </label>
             </div>
            <div class="row">
-             <button type="submit">sign up</button>
+             <button type="submit">Sign up</button>
            </div>
         </form>
     </div>
@@ -156,7 +174,7 @@
 								<li><a href="/movies/Adventure">Adventure</a></li>
 							</ul>
 						</li>
-						<li class="dropdown first">
+						<!-- <li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
 							movies<i class="fa fa-angle-down" aria-hidden="true"></i>
 							</a>
@@ -172,21 +190,26 @@
 								<li><a href="moviesingle.html">Movie single</a></li>
 								<li class="it-last"><a href="seriessingle.html">Series single</a></li>
 							</ul>
-						</li>
+						</li> -->
 					</ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
+						{% if session['set'] == 1 %}
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							pages <i class="fa fa-angle-down" aria-hidden="true"></i>
+							profile <i class="fa fa-angle-down" aria-hidden="true"></i>
 							</a>
 							<ul class="dropdown-menu level1">
-								<li><a href="landing.html">Landing</a></li>
-								<li class="it-last"><a href="comingsoon.html">Get in touch</a></li>
+								<li><a href="/userprofile">View Profile</a></li>
+								<li class="it-last"><a href="/userfavouritegrid">View Favorite Movies</a></li>
 							</ul>
 						</li>                
 						<li><a href="#">Help</a></li>
+						<li class="btn"><a href="{{ url_for('logout') }}">LOG out</a></li>
+						
+						{% else %}
 						<li class="loginLink"><a href="#">LOG In</a></li>
 						<li class="btn signupLink"><a href="#">sign up</a></li>
+						{% endif %}
 					</ul>
 				</div>
 			<!-- /.navbar-collapse -->
@@ -268,6 +291,7 @@
 <script src="{{url_for('static', filename='js/plugins.js')}}"></script>
 <script src="{{url_for('static', filename='js/plugins2.js')}}"></script>
 <script src="{{url_for('static', filename='js/custom.js')}}"></script>
+<script src="{{url_for('static', filename='js/scripts.js')}}"></script>
 </body>
 
 <!-- Mirrored from haintheme.com/demo/html/bustter/landing.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Mar 2020 19:53:32 GMT -->

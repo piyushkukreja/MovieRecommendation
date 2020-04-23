@@ -33,9 +33,9 @@
                         <img src="{{movie.Poster}}" alt="">
                         <div class="movie-btn">
                             <div class="btn-transform transform-vertical red">
-                                <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Add to favourites</a>
+                                <div><a href="/add-favourites/{{movie.Title}}" id="" class="add-favourites item item-1 redbtn"> <i class="ion-play"></i> Add to favourites</a>
                                 </div>
-                                <div><a href="https://www.youtube.com/embed/o-0hcF97wy0"
+                                <div><a href="/add-favourites/{{movie.Title}}"
                                         class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                     <div class="movie-single-ct main-content">
                         <h1 class="bd-hd">{{movie.Title}} <span>{{movie.Year}}</span></h1>
                         <div class="social-btn">
-                            <a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
+                            <a href="/add-favourites/{{movie.Title}}" class="add-favourites parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
                             <div class="hover-bnt">
                                 <a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
                                 <div class="hvr-item">
@@ -69,7 +69,8 @@
                                     <span class="rv"></span>
                                 </p>
                             </div>
-                            <div class="rate-star">
+                            
+                            <!-- <div class="rate-star">
                                 <p>Rate This Movie: </p>
                                 <i class="ion-ios-star"></i>
                                 <i class="ion-ios-star"></i>
@@ -80,7 +81,7 @@
                                 <i class="ion-ios-star"></i>
                                 <i class="ion-ios-star"></i>
                                 <i class="ion-ios-star-outline"></i>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="movie-tabs">
                             <div class="tabs">
@@ -112,12 +113,12 @@
                                                         <p>{{movie.Actors}}</p>
                                                     </div>
                                                 </div>
-                                                <div class="title-hd-sm">
+                                                <!-- <div class="title-hd-sm">
                                                     <h4>User reviews</h4>
                                                     
-                                                </div>
+                                                </div> -->
                                                 <!-- movie user review -->
-                                                <div class="mv-user-review-item">
+                                                <!-- <div class="mv-user-review-item">
                                                     <h3>Best Marvel movie in my opinion</h3>
                                                     <div class="no-star">
                                                         <i class="ion-android-star"></i>
@@ -145,7 +146,7 @@
                                                         previous movies (and I do love everything Marvel), the plotting
                                                         is splendid (they really do out do themselves in each film,
                                                         there are no problems watching it more than once.</p>
-                                                </div>
+                                                </div> -->
                                             </div>
                                             <div class="col-md-4 col-xs-12 col-sm-12">
                                                 <div class="sb-it">

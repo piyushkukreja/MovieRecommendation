@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+
+<html lang="en" class="no-js">
+
+
+<head>
+	<!-- Basic need -->
+	{% block head %}
+	<title>{{name}}'s Profile</title>
+	{% endblock %}
+
+</head>
+<body>
+{% block body %}
+<div class="hero user-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1>{{name}}'s Profile</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="/">Home</a></li>
+						<li> <span class="ion-ios-arrow-right"></span>Profile</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single">
+	<div class="container">
+		<div class="row ipad-width">
+			<div class="col-md-3 col-sm-12 col-xs-12">
+				<div class="user-information">
+					<!-- <div class="user-img">
+						<a href="#"><img src="images/uploads/user-img.png" alt=""><br></a>
+						<a href="#" class="redbtn">Change avatar</a>
+					</div> -->
+					<div class="user-fav">
+						<p>Account Details</p>
+						<ul>
+							<li  class="active"><a href="userprofile.html">Profile</a></li>
+							<li><a href="/userfavouritegrid">Favorite movies</a></li>
+							<li><a href="userrate.html">Rated movies</a></li>
+						</ul>
+					</div>
+					<div class="user-fav">
+						<p>Others</p>
+						<ul>
+							<li><a href="#">Change password</a></li>
+							<li><a href="#">Log out</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+{% endblock %}
+</body>
+
+<!-- Mirrored from haintheme.com/demo/html/bustter/userprofile.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 24 Mar 2020 19:53:31 GMT -->
+</html>
